@@ -11,3 +11,18 @@ document.addEventListener('turbolinks:load', function() {
     $(this).before(new_fields);
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const addWorkItemButton = document.getElementById('add-work-item');
+  const workItemsContainer = document.getElementById('work-items');
+
+  addWorkItemButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const id = new Date().getTime();
+    const regexp = new RegExp('new_work_items', 'g');
+    const template = document.getElementById('work-item-template').innerHTML.replace(regexp, id);
+
+    workItemsContainer.insertAdjacentHTML('beforeend', template);
+  });
+});

@@ -1,19 +1,16 @@
 <%= form_with(model: daily_report, local: true) do |form| %>
-  <%= form.hidden_field :user_id, value: current_user.id %>
-  <div>
-    <%= form.label :work_date, '作業日' %>
-    <%= form.date_field :work_date %>
-  </div>
+  <%= render 'shared/error_messages', object: form.object %>
+
+  <%= form.label :date, "作業日" %>
+  <%= form.date_field :date %>
 
   <div id="work-items">
-    <%= form.fields_for :work_items do |ff| %>
-      <%= render 'work_item_fields', f: ff %>
+    <%= form.fields_for :work_items do |work_item_fields| %>
+      <%= render 'work_item_fields', f: work_item_fields %>
     <% end %>
   </div>
-  <%= link_to_add_association '作業項目を追加', form, :work_items, partial: 'work_item_fields', data: {association_insertion_node: '#work-items', association_insertion_method: :append} %>
 
+  <%= link_to '作業項目を追加', '#', id: 'add-work-item', class: 'btn btn-primary' %>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= form.submit class: "btn btn-primary" %>
 <% end %>

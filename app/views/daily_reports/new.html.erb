@@ -1,2 +1,15 @@
 <h1>新しい日報を作成</h1>
 <%= render 'form', daily_report: @daily_report %>
+
+<div id="work-item-template" style="display:none;">
+  <div>
+    <%= label_tag 'work_items[][category]', '業務分類' %>
+    <%= text_field_tag 'work_items[][category]' %>
+
+    <%= label_tag 'work_items[][task]', '作業項目' %>
+    <%= text_field_tag 'work_items[][task]' %>
+
+    <%= label_tag 'work_items[][work_hours]', '作業時間' %>
+    <%= number_field_tag 'work_items[][work_hours]' %>
+  </div>
+</div>
