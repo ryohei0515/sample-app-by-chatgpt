@@ -1,0 +1,24 @@
+<h1>日報一覧</h1>
+
+<%= link_to '新しい日報を作成', new_daily_report_path %>
+
+<table>
+  <thead>
+  <tr>
+    <th>作業日</th>
+    <th>業務分類</th>
+    <th>作業項目</th>
+    <th>作業時間</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @daily_reports.each do |daily_report| %>
+    <tr>
+      <td><%= daily_report.work_date %></td>
+      <td><%= daily_report.category %></td>
+      <td><%= daily_report.task %></td>
+      <td><%= daily_report.work_hours %>時間</td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
