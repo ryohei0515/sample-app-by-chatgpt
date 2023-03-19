@@ -5,10 +5,12 @@
     <%= form.date_field :work_date %>
   </div>
 
-  <%= form.nested_fields_for :work_items do |ff| %>
-    <%= render 'work_item_fields', f: ff %>
-  <% end %>
-  <%= form.add_nested_fields_link :work_items, '作業項目を追加' %>
+  <div id="work-items">
+    <%= form.fields_for :work_items do |ff| %>
+      <%= render 'work_item_fields', f: ff %>
+    <% end %>
+  </div>
+  <%= link_to_add_association '作業項目を追加', form, :work_items, partial: 'work_item_fields', data: {association_insertion_node: '#work-items', association_insertion_method: :append} %>
 
 
   <div>

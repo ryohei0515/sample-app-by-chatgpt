@@ -1,3 +1,5 @@
+//= require cocoon
+
 document.addEventListener('turbolinks:load', function() {
   $(document).on('click', '.add_fields', function(event) {
     event.preventDefault();
