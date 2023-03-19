@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  daily_report: one
+  category: MyString
+  task: MyString
+  work_hours: 1
+
+two:
+  daily_report: two
+  category: MyString
+  task: MyString
+  work_hours: 1

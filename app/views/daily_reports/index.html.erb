@@ -13,13 +13,15 @@
   </thead>
   <tbody>
   <% @daily_reports.each do |daily_report| %>
-    <tr>
-      <td><%= daily_report.work_date %></td>
-      <td><%= daily_report.category %></td>
-      <td><%= daily_report.task %></td>
-      <td><%= daily_report.work_hours %>時間</td>
-      <td><%= link_to '編集', edit_daily_report_path(daily_report) %></td>
-    </tr>
+    <% daily_report.work_items.each do |work_item| %>
+      <tr>
+        <td><%= daily_report.work_date %></td>
+        <td><%= work_item.category %></td>
+        <td><%= work_item.task %></td>
+        <td><%= work_item.work_hours %>時間</td>
+        <td><%= link_to '編集', edit_daily_report_path(daily_report) %></td>
+      </tr>
+    <% end %>
   <% end %>
   </tbody>
 </table>

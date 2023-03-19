@@ -4,18 +4,22 @@
     <%= form.label :work_date, '作業日' %>
     <%= form.date_field :work_date %>
   </div>
-  <div>
-    <%= form.label :category, '業務分類' %>
-    <%= form.text_field :category %>
-  </div>
-  <div>
-    <%= form.label :task, '作業項目' %>
-    <%= form.text_field :task %>
-  </div>
-  <div>
-    <%= form.label :work_hours, '作業時間' %>
-    <%= form.number_field :work_hours %>
-  </div>
+
+  <%= form.fields_for :work_items do |work_item_fields| %>
+    <div>
+      <%= work_item_fields.label :category, '業務分類' %>
+      <%= work_item_fields.text_field :category %>
+    </div>
+    <div>
+      <%= work_item_fields.label :task, '作業項目' %>
+      <%= work_item_fields.text_field :task %>
+    </div>
+    <div>
+      <%= work_item_fields.label :work_hours, '作業時間' %>
+      <%= work_item_fields.number_field :work_hours %>
+    </div>
+  <% end %>
+
   <div>
     <%= form.submit %>
   </div>

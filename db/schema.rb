@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_19_100359) do
+ActiveRecord::Schema.define(version: 2023_03_19_104543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,5 +38,16 @@ ActiveRecord::Schema.define(version: 2023_03_19_100359) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "work_items", force: :cascade do |t|
+    t.bigint "daily_report_id", null: false
+    t.string "category"
+    t.string "task"
+    t.integer "work_hours"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["daily_report_id"], name: "index_work_items_on_daily_report_id"
+  end
+
   add_foreign_key "daily_reports", "users"
+  add_foreign_key "work_items", "daily_reports"
 end
