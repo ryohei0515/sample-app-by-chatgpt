@@ -34,6 +34,6 @@ class DailyReportsController < ApplicationController
   private
 
   def daily_report_params
-    params.require(:daily_report).permit(:date, work_items_attributes: [:id, :category, :task, :work_hours, :_destroy])
+    params.require(:daily_report).permit(:work_date, work_items_attributes: [:id, :category, :task, :work_hours, :_destroy])
   end
 end

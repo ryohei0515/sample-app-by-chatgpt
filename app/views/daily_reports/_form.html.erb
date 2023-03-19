@@ -1,16 +1,13 @@
 <%= form_with(model: daily_report, local: true) do |form| %>
   <%= render 'shared/error_messages', object: form.object %>
 
-  <%= form.label :date, "作業日" %>
-  <%= form.date_field :date %>
+  <%= form.label :work_date, "作業日" %>
+  <%= form.date_field :work_date %>
 
-  <div id="work-items-container">
-    <%= form.fields_for :work_items do |work_item_form| %>
-      <%= render "work_item_fields", f: work_item_form %>
-    <% end %>
-  </div>
+  <%= form.fields_for :work_items do |work_item_fields| %>
+    <%= render 'work_item_fields', f: work_item_fields %>
+  <% end %>
+  <%= link_to_add_fields "作業項目を追加", form, :work_items %>
 
-  <%= link_to '作業項目を追加', '#', id: 'add-work-item', class: 'btn btn-primary' %>
-
-  <%= form.submit class: "btn btn-primary" %>
+  <%= form.submit %>
 <% end %>
