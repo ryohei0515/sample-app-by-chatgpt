@@ -6,19 +6,10 @@
   </div>
 
   <%= form.fields_for :work_items do |work_item_fields| %>
-    <div>
-      <%= work_item_fields.label :category, '業務分類' %>
-      <%= work_item_fields.text_field :category %>
-    </div>
-    <div>
-      <%= work_item_fields.label :task, '作業項目' %>
-      <%= work_item_fields.text_field :task %>
-    </div>
-    <div>
-      <%= work_item_fields.label :work_hours, '作業時間' %>
-      <%= work_item_fields.number_field :work_hours %>
-    </div>
+    <%= render 'work_item_fields', work_item_fields: work_item_fields %>
   <% end %>
+
+  <%= link_to_add_fields '作業項目を追加', form, :work_items %>
 
   <div>
     <%= form.submit %>
