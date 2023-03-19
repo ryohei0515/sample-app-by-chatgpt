@@ -1,5 +1,9 @@
 <h1>新しい日報を作成</h1>
 <%= render 'form', daily_report: @daily_report %>
+<% content_for :javascript_includes do %>
+  <%= javascript_pack_tag 'daily_reports', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
 
 <div id="work-item-template" style="display:none;">
   <div>

@@ -4,9 +4,9 @@
   <%= form.label :date, "作業日" %>
   <%= form.date_field :date %>
 
-  <div id="work-items">
-    <%= form.fields_for :work_items do |work_item_fields| %>
-      <%= render 'work_item_fields', f: work_item_fields %>
+  <div id="work-items-container">
+    <%= form.fields_for :work_items do |work_item_form| %>
+      <%= render "work_item_fields", f: work_item_form %>
     <% end %>
   </div>
 
