@@ -18,6 +18,7 @@
       <td><%= daily_report.category %></td>
       <td><%= daily_report.task %></td>
       <td><%= daily_report.work_hours %>時間</td>
+      <td><%= link_to '編集', edit_daily_report_path(daily_report) %></td>
     </tr>
   <% end %>
   </tbody>

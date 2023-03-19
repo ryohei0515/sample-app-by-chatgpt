@@ -18,6 +18,19 @@ class DailyReportsController < ApplicationController
     end
   end
 
+  def edit
+    @daily_report = current_user.daily_reports.find(params[:id])
+  end
+
+  def update
+    @daily_report = current_user.daily_reports.find(params[:id])
+    if @daily_report.update(daily_report_params)
+      redirect_to daily_reports_path, notice: '日報が更新されました。'
+    else
+      render :edit
+    end
+  end
+
   private
 
   def daily_report_params
