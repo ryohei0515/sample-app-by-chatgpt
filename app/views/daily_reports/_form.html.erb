@@ -5,11 +5,11 @@
     <%= form.date_field :work_date %>
   </div>
 
-  <%= form.fields_for :work_items do |work_item_fields| %>
-    <%= render 'work_item_fields', work_item_fields: work_item_fields %>
+  <%= form.nested_fields_for :work_items do |ff| %>
+    <%= render 'work_item_fields', f: ff %>
   <% end %>
+  <%= form.add_nested_fields_link :work_items, '作業項目を追加' %>
 
-  <%= link_to_add_fields '作業項目を追加', form, :work_items %>
 
   <div>
     <%= form.submit %>
